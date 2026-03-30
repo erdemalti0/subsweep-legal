@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SubSweep - Privacy Policy</title>
+    <title>SubSweep - Subscription Tracker</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -11,156 +11,102 @@
             background: #030303;
             color: #ECECEC;
             line-height: 1.7;
-            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .container {
-            max-width: 720px;
-            margin: 0 auto;
+            max-width: 520px;
+            text-align: center;
             padding: 40px 20px;
         }
         h1 {
-            font-size: 28px;
+            font-size: 36px;
             font-weight: 700;
-            margin-bottom: 8px;
             color: #D4A853;
+            margin-bottom: 12px;
         }
-        .subtitle {
+        .tagline {
+            font-size: 18px;
             color: #8E8E93;
-            margin-bottom: 40px;
-            font-size: 14px;
+            margin-bottom: 32px;
         }
-        h2 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-top: 36px;
-            margin-bottom: 12px;
-            color: #ECECEC;
+        .features {
+            text-align: left;
+            margin-bottom: 32px;
         }
-        p, li {
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
             color: #C0C0C0;
-            margin-bottom: 12px;
             font-size: 15px;
         }
-        ul {
-            padding-left: 24px;
-            margin-bottom: 16px;
+        .feature .icon {
+            color: #D4A853;
+            font-size: 10px;
+            flex-shrink: 0;
+            margin-top: 8px;
         }
-        li { margin-bottom: 6px; }
-        strong { color: #ECECEC; }
-        .highlight {
-            background: rgba(212, 168, 83, 0.1);
-            border-left: 3px solid #D4A853;
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+        .badge {
+            display: inline-block;
+            background: rgba(212, 168, 83, 0.15);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            color: #D4A853;
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 40px;
         }
-        .highlight p { margin-bottom: 0; }
-        a { color: #D4A853; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .footer {
-            margin-top: 48px;
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
             padding-top: 24px;
             border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        a { color: #8E8E93; text-decoration: none; font-size: 13px; }
+        a:hover { color: #D4A853; }
+        .footer {
+            margin-top: 32px;
             color: #5C5C63;
-            font-size: 13px;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="subtitle">Last updated: March 30, 2026</p>
+        <h1>SubSweep</h1>
+        <p class="tagline">Find every subscription hiding in your email.</p>
 
-        <div class="highlight">
-            <p><strong>SubSweep is built with a local-first, privacy-first architecture.</strong> All email processing happens entirely on your device. We never store, transmit, or have access to your email content.</p>
+        <div class="features">
+            <div class="feature">
+                <span class="icon">&#9679;</span>
+                <span>Scans your Gmail and Outlook for subscription billing emails</span>
+            </div>
+            <div class="feature">
+                <span class="icon">&#9679;</span>
+                <span>AI-powered detection of services, prices, and renewal dates</span>
+            </div>
+            <div class="feature">
+                <span class="icon">&#9679;</span>
+                <span>100% on-device processing — your email never leaves your phone</span>
+            </div>
+            <div class="feature">
+                <span class="icon">&#9679;</span>
+                <span>Alerts before renewals so you never pay for unused services</span>
+            </div>
         </div>
 
-        <h2>1. What SubSweep Does</h2>
-        <p>SubSweep scans your email accounts to automatically detect paid subscriptions, track your spending, and alert you before renewals. The app processes your emails locally on your device to find subscription-related messages and extract billing information.</p>
+        <div class="badge">Coming soon on the App Store</div>
 
-        <h2>2. Information We Access</h2>
-        <p>When you connect your email account, SubSweep requests read-only access to your emails through OAuth 2.0 (Google Sign-In for Gmail, Microsoft OAuth for Outlook). Specifically:</p>
-        <ul>
-            <li><strong>Gmail:</strong> We request the <code>gmail.readonly</code> scope, which provides read-only access to your Gmail messages. We cannot modify, delete, or send emails.</li>
-            <li><strong>Outlook:</strong> We request the <code>Mail.Read</code> scope through Microsoft Graph API, which provides read-only access to your Outlook messages.</li>
-        </ul>
-
-        <h2>3. How Your Data Is Processed</h2>
-        <div class="highlight">
-            <p><strong>All email processing happens entirely on your device.</strong> Here is exactly what happens:</p>
+        <div class="links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="mailto:altinsoyyusuferdem@gmail.com">Contact</a>
         </div>
-        <ul>
-            <li><strong>Email fetching:</strong> Your emails are downloaded directly from Gmail/Outlook to your device using your OAuth token. They pass through no intermediary server.</li>
-            <li><strong>Subscription detection:</strong> Emails are analyzed on-device to identify subscription-related messages. Non-relevant emails are filtered out and immediately discarded from memory.</li>
-            <li><strong>AI-assisted analysis:</strong> For subscription detection accuracy, truncated email snippets (subject line and a limited portion of the body, with personal details stripped) are sent to Google's Gemini API for classification. This data is processed under Google's API terms and is not used for training. No full email content is ever sent.</li>
-            <li><strong>Local storage:</strong> Only extracted subscription metadata (service name, amount, billing cycle, renewal date) is stored in a local database on your device. Raw email content is never stored.</li>
-        </ul>
-
-        <h2>4. What We Store</h2>
-        <p><strong>On your device only:</strong></p>
-        <ul>
-            <li>Subscription details: service name, price, billing cycle, renewal date, category</li>
-            <li>Connected email account identifiers (email address, provider)</li>
-            <li>OAuth tokens (encrypted in your device's secure storage — iOS Keychain / Android Keystore)</li>
-            <li>App preferences (theme, language, trial status)</li>
-        </ul>
-        <p><strong>We do NOT store:</strong></p>
-        <ul>
-            <li>Email content, subjects, or body text</li>
-            <li>Attachments</li>
-            <li>Contact information</li>
-            <li>Browsing or usage data</li>
-        </ul>
-
-        <h2>5. What We Share</h2>
-        <p>We do not sell, share, or transfer your personal data to any third parties. The only external data transmission is:</p>
-        <ul>
-            <li><strong>Google Gemini API:</strong> Truncated, stripped email snippets for subscription classification (processed under <a href="https://ai.google.dev/gemini-api/terms">Google's Gemini API Terms</a>).</li>
-            <li><strong>Google Favicon Service:</strong> Domain names are sent to retrieve service logos (e.g., "netflix.com" to display the Netflix icon).</li>
-        </ul>
-
-        <h2>6. Authentication</h2>
-        <p>SubSweep uses Google Sign-In and Microsoft OAuth for authentication and email access. We use the industry-standard OAuth 2.0 protocol, which means:</p>
-        <ul>
-            <li>We never see or store your email password</li>
-            <li>You can revoke SubSweep's access at any time from your <a href="https://myaccount.google.com/permissions">Google Account</a> or <a href="https://account.live.com/consent/Manage">Microsoft Account</a> settings</li>
-            <li>OAuth tokens are stored in your device's encrypted secure storage</li>
-        </ul>
-
-        <h2>7. Data Retention</h2>
-        <p>All data is stored locally on your device. When you:</p>
-        <ul>
-            <li><strong>Disconnect an email account:</strong> Associated subscription data remains on your device until you manually delete it.</li>
-            <li><strong>Delete the app:</strong> All local data, including the database and stored tokens, is permanently deleted from your device.</li>
-            <li><strong>Revoke OAuth access:</strong> SubSweep can no longer access your emails, but previously detected subscription data remains on your device.</li>
-        </ul>
-
-        <h2>8. Security</h2>
-        <ul>
-            <li>OAuth tokens are encrypted using iOS Keychain / Android Keystore</li>
-            <li>All network communication uses HTTPS/TLS encryption</li>
-            <li>No server-side storage of user data — there is no server to breach</li>
-            <li>Email content is processed in memory and never written to disk</li>
-        </ul>
-
-        <h2>9. Children's Privacy</h2>
-        <p>SubSweep is not intended for use by children under the age of 13. We do not knowingly collect personal information from children.</p>
-
-        <h2>10. Your Rights</h2>
-        <p>Since all data is stored locally on your device, you have full control:</p>
-        <ul>
-            <li>View all stored data within the app</li>
-            <li>Delete individual subscriptions or all data</li>
-            <li>Disconnect email accounts and revoke access</li>
-            <li>Uninstall the app to remove all data permanently</li>
-        </ul>
-
-        <h2>11. Changes to This Policy</h2>
-        <p>We may update this privacy policy from time to time. Any changes will be reflected on this page with an updated "Last updated" date. Continued use of SubSweep after changes constitutes acceptance of the updated policy.</p>
-
-        <h2>12. Contact</h2>
-        <p>If you have questions about this privacy policy or SubSweep's data practices, please contact us:</p>
-        <p><strong>Email:</strong> <a href="mailto:altinsoyyusuferdem@gmail.com">altinsoyyusuferdem@gmail.com</a></p>
 
         <div class="footer">
             <p>&copy; 2026 SubSweep. All rights reserved.</p>
@@ -168,4 +114,3 @@
     </div>
 </body>
 </html>
-
